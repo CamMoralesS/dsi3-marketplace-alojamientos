@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './button.html',
   styleUrl: './button.css',
 })
-export class Button {}
+export class Button {
+  @Input() textButton!: String;
+  @Input() labelMessage: String= 'Para cargar informacion';
+  @Output() buttonClick = new EventEmitter<boolean>();
+
+  onClickButton() {
+    this.buttonClick.emit(true);
+  }
+}
