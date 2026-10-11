@@ -1,9 +1,3 @@
-<div class="search-bar">
-  <h1>Encuentra tu alojamiento ideal</h1>
-  <p>Explora una amplia variedad de opciones de alojamiento y encuentra el lugar perfecto para tu próxima aventura.</p>
-  <div class="search-bar-container">
-    <app-custom-input [inputLabel]="'Buscar alojamiento'" [(value)]="searchValue" (onHandleChange)="onSearchChange($event)"></app-custom-input>
-    <app-button textButton="Buscar"></app-button>
-  </div>
-</div>
+<app-custom-input [inputLabel]="'Buscar alojamiento'" [(value)]="searchValue" (onHandleChange)="onSearchChange($event)"></app-custom-input>
+<app-button textButton="Buscar"></app-button>
 
