@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Button } from '../button/button';
+import { Alojamiento } from '../../core/model/alojamiento.model';
 
 @Component({
   selector: 'app-card',
@@ -8,6 +9,9 @@ import { Button } from '../button/button';
   styleUrl: './card.css',
 })
 export class Card {
-  @Input() cardTitle = "Card Title";
-  @Input() cardDescription = "Card description goes here. It provides a brief overview of the content or purpose of the card.";
+  @Input() card!: Alojamiento;
+
+  onReservar() {
+    console.log('Reservado:', this.card.nombre);
+  }
 }

@@ -1,6 +1,4 @@
-<div>
-    <img src="path/to/image.jpg" alt="Description of image">
-    <h2>{{ cardTitle }}</h2>
-    <p>{{ cardDescription }}</p>
-    <app-button textButton="Reservar"></app-button>   
-</div>
+<img src="{{ card.imagenes }}" alt="Description of image">
+<h2>{{ card.nombre }}</h2>
+<p>{{ card.descripcion }}</p>
+<app-button textButton="Reservar" (click)="onReservar()"></app-button>   

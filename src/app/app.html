@@ -1,7 +1,10 @@
 <app-header></app-header>
 <app-carrousel></app-carrousel>
-<app-card [cardTitle]="'Alojamiento 1'" [cardDescription]="'Descripción del alojamiento 1'"></app-card>
-<app-card [cardTitle]="'Alojamiento 2'" [cardDescription]="'Descripción del alojamiento 2'"></app-card>
+<div class="cards-container">
+  @for (card of cards(); track card.id) {
+    <app-card [card]="$any(card)"></app-card>
+  }
+</div>
 <main>
   <router-outlet></router-outlet>
 </main>
