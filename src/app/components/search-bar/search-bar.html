@@ -1,3 +1,7 @@
-<app-custom-input [inputLabel]="'Buscar alojamiento'" [(value)]="searchValue" (onHandleChange)="onSearchChange($event)"></app-custom-input>
-<app-button textButton="Buscar"></app-button>
-
+<app-custom-input
+  [inputLabel]="'Buscar alojamiento'"
+  inputType="text"
+  [value]="searchValue"
+  (valueChange)="onSearchChange($event)"
+></app-custom-input>
+<app-button textButton="Buscar" (buttonClick)="onBuscar()"></app-button>

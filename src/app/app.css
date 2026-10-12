@@ -1,9 +1,4 @@
-.cards-container {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-}
-
-.card {
-  flex: 0 0 250px;      /* no se encoge, ancho fijo */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
 }

@@ -11,11 +11,10 @@ export class CustomInput {
   @Input() inputLabel: String = '';
   @Input() inputType: String = 'text';
 
-  @Input() value: String | number = 0;
-  @Output() valueChange = new EventEmitter<String|number>;
+  @Input() value: string | number = '';
+  @Output() valueChange = new EventEmitter<string | number>();
 
-  onHandleChange(value: String | number) {
-    console.log("value", value);
+  onHandleChange(value: string | number) {
     this.value = value;
     this.valueChange.emit(value);
   }

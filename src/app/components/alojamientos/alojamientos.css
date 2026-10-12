@@ -1,0 +1,46 @@
+.pagina {
+  padding: var(--espacio-md);
+}
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-md);
+  margin: var(--espacio-lg) 0;
+  padding: var(--espacio-md);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  align-items: end;
+}
+
+.filtros label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  font-size: 0.9rem;
+  min-width: 140px;
+}
+
+.filtros select,
+.filtros input {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-sm);
+  font-family: var(--fuente-texto);
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cards-container app-card {
+  flex: 0 0 260px;
+}
+
+.vacio {
+  color: var(--color-texto-secundario);
+  margin-top: var(--espacio-md);
+}

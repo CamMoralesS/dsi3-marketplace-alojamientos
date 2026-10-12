@@ -1,0 +1,23 @@
+<section class="pagina">
+  <h1>Registrarse</h1>
+  <p>No hay backend de usuarios; el registro es solo simulado.</p>
+
+  <div class="formulario">
+    <app-custom-input
+      inputLabel="Nombre"
+      inputType="text"
+      [(value)]="nombre"
+    ></app-custom-input>
+    <app-custom-input
+      inputLabel="Correo"
+      inputType="email"
+      [(value)]="correo"
+    ></app-custom-input>
+    <app-custom-input
+      inputLabel="Contraseña"
+      inputType="password"
+      [(value)]="contrasena"
+    ></app-custom-input>
+    <app-button textButton="Registrarse" (buttonClick)="registrarse()"></app-button>
+  </div>
+</section>

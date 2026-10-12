@@ -1,0 +1,101 @@
+@if (error()) {
+  <p class="mensaje">{{ error() }}</p>
+  <a routerLink="/alojamientos">Volver al listado</a>
+} @else if (alojamiento(); as a) {
+  <section class="detalle">
+    <a routerLink="/alojamientos">← Volver</a>
+
+    <div class="galeria">
+      @for (img of a.imagenes; track img) {
+        <img [src]="img" [alt]="a.nombre" />
+      }
+    </div>
+
+    <h1>{{ a.nombre }}</h1>
+    <p>{{ a.descripcion }}</p>
+    <ul class="info">
+      <li>Ciudad: {{ a.ciudad }}</li>
+      <li>Ubicación: {{ a.ubicacion }}</li>
+      <li>Tipo: {{ a.tipo }}</li>
+      <li>Capacidad: {{ a.capacidad }}</li>
+      <li>Habitaciones: {{ a.habitaciones }}</li>
+      <li>Camas: {{ a.camas }}</li>
+      <li>Baños: {{ a.banos }}</li>
+      <li>Precio por noche: {{ a.precioNoche | currency:'COP':'symbol-narrow':'1.0-0' }}</li>
+      <li>Calificación: {{ a.calificacion }}</li>
+    </ul>
+
+    <h2>Servicios</h2>
+    <p>{{ a.servicios.join(', ') }}</p>
+
+    <h2>Reglas</h2>
+    <ul>
+      @for (regla of a.reglas; track regla) {
+        <li>{{ regla }}</li>
+      }
+    </ul>
+
+    <h2>Reseñas</h2>
+    @if (resenas().length === 0) {
+      <p>No hay reseñas para este alojamiento.</p>
+    } @else {
+      <ul>
+        @for (r of resenas(); track r.id) {
+          <li>
+            <strong>{{ r.usuario }}</strong> ({{ r.calificacion }}/5): {{ r.comentario }}
+          </li>
+        }
+      </ul>
+    }
+
+    <section class="cotizacion-box">
+      <h2>Cotización</h2>
+
+      <label>
+        Fecha de llegada
+        <input type="date" [(ngModel)]="fechaLlegada" />
+      </label>
+      <label>
+        Fecha de salida
+        <input type="date" [(ngModel)]="fechaSalida" />
+      </label>
+      <app-custom-input
+        inputLabel="Huéspedes"
+        inputType="number"
+        [value]="huespedes"
+        (valueChange)="onHuespedesChange($event)"
+      ></app-custom-input>
+
+      <app-button textButton="Calcular cotización" (buttonClick)="calcularCotizacion()"></app-button>
+
+      @if (cotizacion(); as c) {
+        <div class="resultado">
+          <p>Noches: {{ c.noches }}</p>
+          <p>Subtotal: {{ c.subtotal | currency:'COP':'symbol-narrow':'1.0-0' }}</p>
+          <p>Limpieza: {{ c.tarifaLimpieza | currency:'COP':'symbol-narrow':'1.0-0' }}</p>
+          <p>Servicio (10%): {{ c.tarifaServicio | currency:'COP':'symbol-narrow':'1.0-0' }}</p>
+          <p><strong>Total: {{ c.total | currency:'COP':'symbol-narrow':'1.0-0' }}</strong></p>
+
+          <app-custom-input
+            inputLabel="Nombre del huésped"
+            inputType="text"
+            [value]="nombreHuesped"
+            (valueChange)="onNombreChange($event)"
+          ></app-custom-input>
+          <app-custom-input
+            inputLabel="Correo"
+            inputType="email"
+            [value]="correo"
+            (valueChange)="onCorreoChange($event)"
+          ></app-custom-input>
+
+          <app-button textButton="Reservar" (buttonClick)="reservar()"></app-button>
+        </div>
+      }
+
+      @if (mensaje()) {
+        <p class="mensaje">{{ mensaje() }}</p>
+      }
+    </section>
+  </section>
+}

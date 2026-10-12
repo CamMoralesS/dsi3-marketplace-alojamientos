@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Button } from '../button/button';
 import { CustomInput } from '../custom-input/custom-input';
 
@@ -9,9 +9,15 @@ import { CustomInput } from '../custom-input/custom-input';
   styleUrl: './search-bar.css',
 })
 export class SearchBar {
-  searchValue!: string;
-  
-  onSearchChange($event: Event) {
-  throw new Error('Method not implemented.');
+  @Output() search = new EventEmitter<string>();
+
+  searchValue = '';
+
+  onSearchChange(valor: string | number): void {
+    this.searchValue = String(valor);
+  }
+
+  onBuscar(): void {
+    this.search.emit(this.searchValue.trim());
   }
 }

@@ -1,2 +1,2 @@
 <label>{{ inputLabel }}</label>
-<input [ngModel] = "value"  (ngModelChange)="onHandleChange($event)">
+<input [type]="inputType" [ngModel]="value" (ngModelChange)="onHandleChange($event)">

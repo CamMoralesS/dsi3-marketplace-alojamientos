@@ -1,0 +1,23 @@
+<section class="pagina">
+  <h1>Contacto</h1>
+  <p>Déjanos tu mensaje. Por ahora no hay backend; el envío solo se muestra en consola.</p>
+
+  <div class="formulario">
+    <app-custom-input
+      inputLabel="Nombre"
+      inputType="text"
+      [(value)]="nombre"
+    ></app-custom-input>
+    <app-custom-input
+      inputLabel="Correo"
+      inputType="email"
+      [(value)]="correo"
+    ></app-custom-input>
+    <app-custom-input
+      inputLabel="Mensaje"
+      inputType="text"
+      [(value)]="mensaje"
+    ></app-custom-input>
+    <app-button textButton="Enviar" (buttonClick)="enviar()"></app-button>
+  </div>
+</section>

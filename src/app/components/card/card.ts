@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Button } from '../button/button';
 import { Alojamiento } from '../../core/model/alojamiento.model';
 
@@ -9,9 +10,11 @@ import { Alojamiento } from '../../core/model/alojamiento.model';
   styleUrl: './card.css',
 })
 export class Card {
+  private readonly router = inject(Router);
+
   @Input() card!: Alojamiento;
 
-  onReservar() {
-    console.log('Reservado:', this.card.nombre);
+  verDetalle() {
+    this.router.navigate(['/alojamientos', this.card.id]);
   }
 }

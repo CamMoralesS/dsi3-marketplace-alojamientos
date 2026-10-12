@@ -1,9 +1,9 @@
 <nav class="navbar">
-    <a class="nav-link" href="#">Inicio</a>
-    <a class="navbar-brand" href="#">Alojamientos</a>
-    <a class="nav-link" href="#">Contacto</a>
-    <app-search-bar></app-search-bar>
-    <app-button textButton="Iniciar sesión"></app-button>
-    <app-button textButton="Registrarse"></app-button>
+    <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+    <a class="navbar-brand" routerLink="/alojamientos" routerLinkActive="active">Alojamientos</a>
+    <a class="nav-link" routerLink="/mis-reservas" routerLinkActive="active">Mis reservas</a>
+    <a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a>
+    <app-search-bar (search)="onBuscar($event)"></app-search-bar>
+    <app-button textButton="Iniciar sesión" (buttonClick)="irA('/iniciar-sesion')"></app-button>
+    <app-button textButton="Registrarse" (buttonClick)="irA('/registrarse')"></app-button>
 </nav>
-<router-outlet></router-outlet>
