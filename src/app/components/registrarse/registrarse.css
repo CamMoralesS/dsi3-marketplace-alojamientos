@@ -1,0 +1,15 @@
+.pagina {
+  padding: var(--espacio-md);
+  max-width: 420px;
+}
+
+.pagina p {
+  color: var(--color-texto-secundario);
+  margin: var(--espacio-sm) 0 var(--espacio-lg);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+}

@@ -1,0 +1,12 @@
+<div class="carousel-container">
+  <div class="carousel-track" [style.transform]="'translateX(-' + (currentIndex * 100) + '%)'">
+    @for (img of images; track img.src) {
+      <div class="carousel-slide">
+      <img [src]="img.src" [alt]="img.alt">
+      </div>
+    }
+  </div>
+
+  <app-button textButton="Anterior" (buttonClick)="prevSlide()"></app-button>
+  <app-button textButton="Siguiente" (buttonClick)="nextSlide()"></app-button>
+</div>

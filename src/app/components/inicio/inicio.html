@@ -1,0 +1,21 @@
+<section class="inicio">
+  <h1>Estadia LR</h1>
+  <p>
+    Marketplace de alojamientos temporales. Explora opciones disponibles,
+    consulta detalles y realiza una reserva simulada.
+  </p>
+  <a routerLink="/alojamientos">
+    <app-button textButton="Buscar alojamientos"></app-button>
+  </a>
+</section>
+
+<app-carrousel [images]="imagenesCarrusel()"></app-carrousel>
+
+<section class="destacados">
+  <h2>Alojamientos destacados</h2>
+  <div class="cards-container">
+    @for (card of cards(); track card.id) {
+      <app-card [card]="card"></app-card>
+    }
+  </div>
+</section>

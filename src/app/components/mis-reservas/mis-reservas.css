@@ -1,0 +1,32 @@
+.pagina {
+  padding: var(--espacio-md);
+}
+
+.vacio {
+  color: var(--color-texto-secundario);
+  margin-top: var(--espacio-md);
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  margin-top: var(--espacio-lg);
+}
+
+.item {
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-md);
+  background: var(--color-superficie);
+  padding: var(--espacio-md);
+}
+
+.item h2 {
+  font-size: 1.1rem;
+  margin-bottom: var(--espacio-sm);
+}
+
+.item p {
+  color: var(--color-texto-secundario);
+  margin-bottom: var(--espacio-xs);
+}

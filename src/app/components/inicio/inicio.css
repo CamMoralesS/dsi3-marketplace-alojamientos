@@ -1,0 +1,33 @@
+.inicio {
+  padding: var(--espacio-md);
+  margin-bottom: var(--espacio-lg);
+}
+
+.inicio p {
+  color: var(--color-texto-secundario);
+  margin: var(--espacio-sm) 0 var(--espacio-md);
+  max-width: 560px;
+}
+
+.inicio a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.destacados {
+  padding: var(--espacio-md);
+}
+
+.destacados h2 {
+  margin-bottom: var(--espacio-md);
+}
+
+.cards-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.cards-container app-card {
+  flex: 0 0 260px;
+}

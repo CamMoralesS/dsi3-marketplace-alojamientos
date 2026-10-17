@@ -1,0 +1,10 @@
+<article class="card" (click)="verDetalle()">
+  <img [src]="card.imagenPrincipal" [alt]="card.nombre">
+  <h2>{{ card.nombre }}</h2>
+  <p>{{ card.ciudad }} · {{ card.tipo }}</p>
+  <p>Capacidad: {{ card.capacidad }} personas</p>
+  <p>${{ card.precioNoche }} / noche</p>
+  <p>Calificación: {{ card.calificacion }}</p>
+  <p class="servicios">{{ card.servicios.join(', ') }}</p>
+  <app-button textButton="Ver detalle" (buttonClick)="verDetalle()"></app-button>
+</article>

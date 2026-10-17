@@ -1,0 +1,21 @@
+<section class="pagina">
+  <h1>Mis reservas</h1>
+
+  @if (reservas().length === 0) {
+    <p class="vacio">Aún no tienes reservas registradas en esta sesión.</p>
+  } @else {
+    <div class="lista">
+      @for (r of reservas(); track r.id) {
+        <article class="item">
+          <h2>{{ r.nombreAlojamiento }}</h2>
+          <p>Ciudad: {{ r.ciudad }}</p>
+          <p>Llegada: {{ r.fechaLlegada }}</p>
+          <p>Salida: {{ r.fechaSalida }}</p>
+          <p>Huéspedes: {{ r.huespedes }}</p>
+          <p>Total: {{ r.total | currency:'COP':'symbol-narrow':'1.0-0' }}</p>
+          <p>Estado: {{ r.estado }}</p>
+        </article>
+      }
+    </div>
+  }
+</section>

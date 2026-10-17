@@ -1,0 +1,47 @@
+<section class="pagina">
+  <h1>Alojamientos</h1>
+
+  <div class="filtros">
+    <label>
+      Ciudad
+      <select [(ngModel)]="ciudad" (ngModelChange)="aplicarFiltros()">
+        <option value="">Todas</option>
+        @for (c of ciudades(); track c) {
+          <option [value]="c">{{ c }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      Huéspedes
+      <input type="number" min="1" [(ngModel)]="huespedes" (ngModelChange)="aplicarFiltros()" />
+    </label>
+
+    <label>
+      Tipo
+      <select [(ngModel)]="tipo" (ngModelChange)="aplicarFiltros()">
+        <option value="">Todos</option>
+        @for (t of tipos(); track t) {
+          <option [value]="t">{{ t }}</option>
+        }
+      </select>
+    </label>
+
+    <label>
+      Precio máximo
+      <input type="number" min="0" [(ngModel)]="precioMax" (ngModelChange)="aplicarFiltros()" />
+    </label>
+
+    <app-button textButton="Limpiar filtros" (buttonClick)="limpiarFiltros()"></app-button>
+  </div>
+
+  @if (cards().length === 0) {
+    <p class="vacio">No se encontraron alojamientos con esos filtros.</p>
+  } @else {
+    <div class="cards-container">
+      @for (card of cards(); track card.id) {
+        <app-card [card]="card"></app-card>
+      }
+    </div>
+  }
+</section>
